@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="8.szakma.css">
+    <title>Szakmai évek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .vertical-line {
+            border-left: 2px solid black;
+            height: 30px;
+            margin: 0 auto;
+            width: 0;
+        }
+
+        .description-section {
+            text-align: center;
+            margin: 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px;
+            border: 2px solid #000;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dropdown-menu button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: 1px solid #000;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu button:hover {
+            background-color: #ddd;
+        }
+
+        .details-section {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+            font-size: 1.2em;
+            border-top: 2px solid #000;
+            width: 100%;
+        }
+
+        .active {
+            display: flex;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>Szakmai évek</header>
+    <div class="vertical-line"></div>
+
+    <div class="description-section" onclick="toggleDropdown()">
+        A Brassaiban eltöltött 5 szakmai év rövid leírásai
+    </div>
+
+    <div class="dropdown-menu">
+        <button onclick="showDetails('aaaaaaaaa')">2020/2021-es tanév<br>9. évfolyam</button>
+        <button onclick="showDetails('bbbbbbb')">2021/2022-es tanév<br>10. évfolyam</button>
+        <button onclick="showDetails('ccccccccc')">2022/2023-as tanév<br>11. évfolyam</button>
+        <button onclick="showDetails('dddddddd')">2023/2024-ös tanév<br>12. évfolyam</button>
+        <button onclick="showDetails('eeeeeeee')">2024/2025-ös tanév<br>13. (szakmai) évfolyam</button>
+    </div>
+
+    <div id="details" class="details-section"></div>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown-menu');
+            dropdown.classList.toggle('active');
+        }
+
+        function showDetails(content) {
+            const details = document.getElementById('details');
+            let description = '';
+
+            switch(content) {
+                case 'aaaaaaaaa':
+                    description = 'aaaaaaaaaa';
+                    break;
+                case 'bbbbbbb':
+                    description = 'bbbbbbb';
+                    break;
+                case 'ccccccccc':
+                    description = 'ccccccccc';
+                    break;
+                case 'dddddddd':
+                    description = 'dddddddd';
+                    break;
+                case 'eeeeeeee':
+                    description = 'eeeeeeeee';
+                    break;
+                default:
+                    description = '';
+            }
+
+            details.textContent = description;
+            details.classList.add('show');
+        }
+    </script>
+</body>
+</html>
